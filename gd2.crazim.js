@@ -11193,50 +11193,51 @@
 
                     function yE(e) {
                         var t = this;
-                        return vE || (e = {});
-                        }, vE = new wi(e)), vE || {
-                            send: function() {
-                                ce(this, t)
-                            }.bind(this)
-                        }
-                    }
-                    var _E = {
-                            getGameData: function(e) {
-                                var t = this;
-                                try {
-                                    var n = e.replace("game.api.gamedistribution.com", "game-api.gamedistribution.com");
-                                    fetch(n).then(function(e) {
-                                        ce(this, t)
-                                    }.bind(this)).catch(function(e) {
-                                        ce(this, t)
-                                    }.bind(this))
-                                } catch (e) {}
-                            },
-                            getGameLoaderIndex: function(e) {
-                                var t = this;
-                                try {
-                                    var n = "https://html5-prod-aws.gamedistribution.com/".concat(e, "/");
-                                    fetch(n).then(function(e) {
-                                        ce(this, t)
-                                    }.bind(this)).catch(function(e) {
-                                        ce(this, t)
-                                    }.bind(this))
-                                } catch (e) {}
-                            }
-                        },
-                        wE = {
-                            getGameData: function(e) {
-                                var t = this;
-                                try {
-                                    var n = e.replace("game.api.gamedistribution.com", "game-api-acc-real-hwp.gamedistribution.com");
-                                    fetch(n).then(function(e) {
-                                        ce(this, t)
-                                    }.bind(this)).catch(function(e) {
-                                        ce(this, t)
-                                    }.bind(this))
-                                } catch (e) {}
-                            }
-                        },
+                        function normalizePlatform(p) {
+  const gamepush = window.GamePush;
+  const WEB_ENUM = gamepush?.PlatformType?.WEB;
+  if (WEB_ENUM != null) return WEB_ENUM;
+
+  if (p && typeof p === "object" && "type" in p) return p.type || "web";
+
+  if (typeof p === "string" || typeof p === "number") return p;
+  return "web";
+}
+
+return vE || (
+    e = {
+        gameId: null,
+        hours: 0,
+        topDomain: "",
+        domain: "",
+        referrer: "",
+        depth: 0,
+        version: "",
+        byloader: false,
+        isTokenGameURL: false,
+        isMasterGameURL: false,
+        isExtHostedGameURL: false,
+        byloaderVersion: "",
+        tracking: false,
+        whitelabel: "",
+        platform: normalizePlatform(null)
+    },
+    vE = new wi(e),
+    vE || {
+        send: function() {
+            ce(this, t);
+        }.bind(this)
+    }
+);
+
+var _E = {
+    getGameData: function(e) {},
+    getGameLoaderIndex: function(e) {}
+},
+
+wE = {
+    getGameData: function(e) {}
+},
                         Pe = {
                             exports: {}
                         },

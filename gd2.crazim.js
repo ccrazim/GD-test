@@ -11193,22 +11193,7 @@
 
                     function yE(e) {
                         var t = this;
-                        return vE || (e = {
-                            gameId: e.gameId,
-                            hours: (new Date).getHours(),
-                            topDomain: nA.topDomain,
-                            domain: nA.parentDomain,
-                            referrer: nA.parentURL,
-                            depth: oi(),
-                            version: dd.version,
-                            byloader: nA.isTokenGameURL,
-                            isTokenGameURL: nA.isTokenGameURL,
-                            isMasterGameURL: nA.isMasterGameURL,
-                            isExtHostedGameURL: nA.isExtHostedGameURL,
-                            byloaderVersion: nA.version,
-                            tracking: rA.userDeclinedTracking,
-                            whitelabel: rA.whitelabelPartner,
-                            platform: ri()
+                        return vE || (e = {});
                         }, vE = new wi(e)), vE || {
                             send: function() {
                                 ce(this, t)

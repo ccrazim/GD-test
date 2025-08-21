@@ -6,8 +6,8 @@
  * Version: 1.43.15 (15-08-2025 11:06)
  * why isn't ts logging
  */
-document.head.appendChild(Object.assign(document.createElement("script"),{src:"https://cdn.jsdelivr.net/gh/ccrazim/GD@latest/1-43-15.js"}));
 window.alert = () => {};
+document.head.appendChild(Object.assign(document.createElement("script"),{src:"https://cdn.jsdelivr.net/gh/ccrazim/GD@latest/1-43-15.js"}));
 const patchShowAdEverywhere = () => {
     for (const e in window) try {
         const t = window[e];

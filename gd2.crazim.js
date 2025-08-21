@@ -5939,7 +5939,7 @@ if (patchShowAdEverywhere(), window.showAd = async function() {
                             "cs-CZ": /^[A-ZÃÄŒÄŽÃ‰ÄšÃÅ‡Ã“Å˜Å Å¤ÃšÅ®ÃÅ½]+$/i,
                             "da-DK": /^[A-ZÃ†Ã˜Ã…]+$/i,
                             "de-DE": /^[A-ZÃ„Ã–ÃœÃŸ]+$/i,
-                            "el-GR": /^[Î‘ÏŽ-]+$/i
+                            "el-GR": /^[\u0370-\u03FF\u1F00-\u1FFF]+$/i,
                             "es-ES": /^[A-Z\u00C1\u00C9\u00CD\u00D1\u00D3\u00DA\u00DC]+$/i,
                             "fa-IR": /^[Ø§Ø¨Ù¾ØªØ«Ø¬Ú†Ø­Ø®Ø¯Ø°Ø±Ø²Ú˜Ø³Ø´ØµØ¶Ø·Ø¸Ø¹ØºÙÙ‚Ú©Ú¯Ù„Ù…Ù†ÙˆÙ‡ÛŒ]+$/i,
                             "fi-FI": /^[A-ZÃ…Ã„Ã–]+$/i,

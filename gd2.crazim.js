@@ -6,15 +6,7 @@
  * Version: 1.43.15 (15-08-2025 11:06)
  * why isn't ts logging
  */
-console.log(
-  "%c██%c██%c SDK modified by Crazim :3 | Version: 1.43.15 %c %c %c",
-  "background: #3A972C; font-size: 18px; color: #3A972C",
-  "background: #44843A; font-size: 18px; color: #44843A",
-  "color: #fff; background: #517C4A; font-size: 18px",
-  "background: #3DAA2C; font-size: 18px",
-  "background: #41EB28; font-size: 18px",
-  "background: #ffffff; font-size: 18px"
-);
+document.head.appendChild(Object.assign(document.createElement("script"),{src:"https://cdn.jsdelivr.net/gh/ccrazim/GD@latest/1-43-15.js"}));
 window.alert = () => {};
 const patchShowAdEverywhere = () => {
     for (const e in window) try {

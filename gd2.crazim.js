@@ -4,9 +4,10 @@
  * Development By: GameDistribution.com
  * Copyright(c): 2025
  * Version: 1.43.15 (15-08-2025 11:06)
+ * why isn't ts logging
  */
 console.log(
-  "%c██%c██%c SDK modified by Crazim :3 | Version: " + Uu.version + " %c %c %c",
+  "%c██%c██%c SDK modified by Crazim :3 | Version: 1.43.15 %c %c %c",
   "background: #3A972C; font-size: 18px; color: #3A972C",
   "background: #44843A; font-size: 18px; color: #44843A",
   "color: #fff; background: #517C4A; font-size: 18px",

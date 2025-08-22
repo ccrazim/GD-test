@@ -1,6 +1,6 @@
 (function () {
-  if (window.__ima_shim_applied__) return;
-  window.__ima_shim_applied__ = true;
+  if (window.__shim_applied__) return;
+  window.__shim_applied__ = true;
 
   const ima_normal = "https://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js";
   const ima_debug  = "https://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js";
@@ -38,6 +38,30 @@
   const orig_insert_before = Node.prototype.insertBefore;
   Node.prototype.appendChild  = function (el)      { return orig_append_child.call(this,  rewrite(el)); };
   Node.prototype.insertBefore = function (el, ref) { return orig_insert_before.call(this, rewrite(el), ref); };
+
+  const alpha_any   = /^\p{L}+$/u;
+  const alnum_any   = /^[\p{L}\p{N}]+$/u;
+  const decimal_any = /^[0-9]+([.,][0-9]+)?$/;
+
+  function stub_map(re) {
+    if (typeof Proxy === "function") {
+      return new Proxy(Object.create(null), { get: () => re });
+    }
+    const m = Object.create(null);
+    m.any = re;
+    return m;
+  }
+
+  try { Ie.alpha        = stub_map(alpha_any);   } catch (_) {}
+  try { Ie.alphanumeric = stub_map(alnum_any);   } catch (_) {}
+  try { Ie.decimal      = stub_map(decimal_any); } catch (_) {}
+
+  try { Ie.englishLocales = ["en-US"]; } catch (_) {}
+  try { Ie.arabicLocales  = ["ar"];    } catch (_) {}
+  try { Ie.farsiLocales   = ["fa"];    } catch (_) {}
+  try { Ie.bengaliLocales = ["bn"];    } catch (_) {}
+  try { Ie.dotDecimal     = ["en-US"]; } catch (_) {}
+  try { Ie.commaDecimal   = ["fr-FR"]; } catch (_) {}
 })();
 
 ! function r(i, o, a) {

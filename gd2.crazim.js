@@ -1,70 +1,3 @@
-(function () {
-  if (window.__shim_applied__) return;
-  window.__shim_applied__ = true;
-
-  const ima_normal = "https://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js";
-  const ima_debug  = "https://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js";
-
-  const re_ima_debug = /(^https?:)?\/\/imasdk\.googleapis\.com\/js\/sdkloader\/ima3_debug(\.js)?$/i;
-  const re_ima_norm  = /(^https?:)?\/\/imasdk\.googleapis\.com\/js\/sdkloader\/ima3(\.js)?$/i;
-
-  function map_ima(url) {
-    if (typeof url !== "string") return url;
-    if (re_ima_debug.test(url)) return ima_debug;
-    if (re_ima_norm.test(url))  return ima_normal;
-    return url;
-  }
-
-  const orig_set_attribute = Element.prototype.setAttribute;
-  Element.prototype.setAttribute = function (name, value) {
-    if (this.tagName === "SCRIPT" && name === "src" && typeof value === "string") {
-      value = map_ima(value);
-    }
-    return orig_set_attribute.call(this, name, value);
-  };
-
-  const src_desc = Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, "src");
-  Object.defineProperty(HTMLScriptElement.prototype, "src", {
-    get: src_desc.get,
-    set(url) { return src_desc.set.call(this, map_ima(String(url))); }
-  });
-
-  function rewrite(el) {
-    try { if (el && el.tagName === "SCRIPT" && el.src) el.src = map_ima(el.src); } catch(_) {}
-    return el;
-  }
-
-  const orig_append_child  = Node.prototype.appendChild;
-  const orig_insert_before = Node.prototype.insertBefore;
-  Node.prototype.appendChild  = function (el)      { return orig_append_child.call(this,  rewrite(el)); };
-  Node.prototype.insertBefore = function (el, ref) { return orig_insert_before.call(this, rewrite(el), ref); };
-
-  const any_re = /^.*$/;
-  function placeholder_map() {
-    if (typeof Proxy === "function") return new Proxy(Object.create(null), { get: () => any_re });
-    const m = Object.create(null);
-    m["default"] = any_re;
-    m["en-US"] = any_re;
-    return m;
-  }
-
-  (function apply_locale_stubs(){
-    try {
-      const ie = window.Ie || window.ie || window.validators || window.validator || window.Ve || (window.GD && (window.GD.validators || window.GD.validator));
-      if (!ie) return;
-      ie.alpha        = placeholder_map();
-      ie.alphanumeric = placeholder_map();
-      ie.decimal      = placeholder_map();
-      ie.englishLocales = ["en-US"];
-      ie.arabicLocales  = ["ar"];
-      ie.farsiLocales   = ["fa","fa-IR"];
-      ie.bengaliLocales = ["bn"];
-      ie.dotDecimal     = ["en-US"];
-      ie.commaDecimal   = ["fr-FR"];
-    } catch(_) {}
-  })();
-})();
-
 ! function r(i, o, a) {
     function s(t, e) {
         if (!o[t]) {
@@ -5915,81 +5848,10 @@
                         Yb = (Object.defineProperty(Ie, "__esModule", {
                             value: !0
                         }), Ie.commaDecimal = Ie.dotDecimal = Ie.bengaliLocales = Ie.farsiLocales = Ie.arabicLocales = Ie.englishLocales = Ie.decimal = Ie.alphanumeric = Ie.alpha = void 0, {
-                            "en-US": /^[A-Z]+$/i,
-                            "az-AZ": /^[A-VXYZÃ‡ÆÄžÄ°Ä±Ã–ÅžÃœ]+$/i,
-                            "bg-BG": /^[Ð-Ð¯]+$/i,
-                            "cs-CZ": /^[A-ZÃÄŒÄŽÃ‰ÄšÃÅ‡Ã“Å˜Å Å¤ÃšÅ®ÃÅ½]+$/i,
-                            "da-DK": /^[A-ZÃ†Ã˜Ã…]+$/i,
-                            "de-DE": /^[A-ZÃ„Ã–ÃœÃŸ]+$/i,
-                            "el-GR": /^[Î‘-ÏŽ]+$/i,
-                            "es-ES": /^[A-ZÃÃ‰ÃÃ‘Ã“ÃšÃœ]+$/i,
-                            "fa-IR": /^[Ø§Ø¨Ù¾ØªØ«Ø¬Ú†Ø­Ø®Ø¯Ø°Ø±Ø²Ú˜Ø³Ø´ØµØ¶Ø·Ø¸Ø¹ØºÙÙ‚Ú©Ú¯Ù„Ù…Ù†ÙˆÙ‡ÛŒ]+$/i,
-                            "fi-FI": /^[A-ZÃ…Ã„Ã–]+$/i,
-                            "fr-FR": /^[A-ZÃ€Ã‚Ã†Ã‡Ã‰ÃˆÃŠÃ‹ÃÃŽÃ”Å’Ã™Ã›ÃœÅ¸]+$/i,
-                            "it-IT": /^[A-ZÃ€Ã‰ÃˆÃŒÃŽÃ“Ã’Ã™]+$/i,
-                            "ja-JP": /^[ã-ã‚“ã‚¡-ãƒ¶ï½¦-ï¾Ÿä¸€-é¾ ãƒ¼ãƒ»ã€‚ã€]+$/i,
-                            "nb-NO": /^[A-ZÃ†Ã˜Ã…]+$/i,
-                            "nl-NL": /^[A-ZÃÃ‰Ã‹ÃÃ“Ã–ÃœÃš]+$/i,
-                            "nn-NO": /^[A-ZÃ†Ã˜Ã…]+$/i,
-                            "hu-HU": /^[A-ZÃÃ‰ÃÃ“Ã–ÅÃšÃœÅ°]+$/i,
-                            "pl-PL": /^[A-ZÄ„Ä†Ä˜ÅšÅÅƒÃ“Å»Å¹]+$/i,
-                            "pt-PT": /^[A-ZÃƒÃÃ€Ã‚Ã„Ã‡Ã‰ÃŠÃ‹ÃÃÃ•Ã“Ã”Ã–ÃšÃœ]+$/i,
-                            "ru-RU": /^[Ð-Ð¯Ð]+$/i,
-                            "sl-SI": /^[A-ZÄŒÄ†ÄÅ Å½]+$/i,
-                            "sk-SK": /^[A-ZÃÄŒÄŽÃ‰ÃÅ‡Ã“Å Å¤ÃšÃÅ½Ä¹Å”Ä½Ã„Ã”]+$/i,
-                            "sr-RS@latin": /^[A-ZÄŒÄ†Å½Å Ä]+$/i,
-                            "sr-RS": /^[Ð-Ð¯Ð‚ÐˆÐ‰ÐŠÐ‹Ð]+$/i,
-                            "sv-SE": /^[A-ZÃ…Ã„Ã–]+$/i,
-                            "th-TH": /^[à¸-à¹\s]+$/i,
-                            "tr-TR": /^[A-ZÃ‡ÄžÄ°Ä±Ã–ÅžÃœ]+$/i,
-                            "uk-UA": /^[Ð-Ð©Ð¬Ð®Ð¯Ð„IÐ‡ÒÑ–]+$/i,
-                            "vi-VN": /^[A-ZÃ€Ãáº áº¢ÃƒÃ‚áº¦áº¤áº¬áº¨áºªÄ‚áº°áº®áº¶áº²áº´ÄÃˆÃ‰áº¸áººáº¼ÃŠá»€áº¾á»†á»‚á»„ÃŒÃá»Šá»ˆÄ¨Ã’Ã“á»Œá»ŽÃ•Ã”á»’á»á»˜á»”á»–Æ á»œá»šá»¢á»žá» Ã™Ãšá»¤á»¦Å¨Æ¯á»ªá»¨á»°á»¬á»®á»²Ãá»´á»¶á»¸]+$/i,
-                            "ko-KR": /^[ã„±-ã…Žã…-ã…£ê°€-íž£]*$/,
-                            "ku-IQ": /^[Ø¦Ø§Ø¨Ù¾ØªØ¬Ú†Ø­Ø®Ø¯Ø±Ú•Ø²Ú˜Ø³Ø´Ø¹ØºÙÚ¤Ù‚Ú©Ú¯Ù„ÚµÙ…Ù†ÙˆÛ†Ú¾Û•ÛŒÛŽÙŠØ·Ø¤Ø«Ø¢Ø¥Ø£ÙƒØ¶ØµØ©Ø¸Ø°]+$/i,
-                            ar: /^[Ø¡Ø¢Ø£Ø¤Ø¥Ø¦Ø§Ø¨Ø©ØªØ«Ø¬Ø­Ø®Ø¯Ø°Ø±Ø²Ø³Ø´ØµØ¶Ø·Ø¸Ø¹ØºÙÙ‚ÙƒÙ„Ù…Ù†Ù‡ÙˆÙ‰ÙŠÙ‹ÙŒÙÙŽÙÙÙ‘Ù’Ù°]+$/,
-                            he: /^[×-×ª]+$/,
-                            fa: /^['Ø¢Ø§Ø¡Ø£Ø¤Ø¦Ø¨Ù¾ØªØ«Ø¬Ú†Ø­Ø®Ø¯Ø°Ø±Ø²Ú˜Ø³Ø´ØµØ¶Ø·Ø¸Ø¹ØºÙÙ‚Ú©Ú¯Ù„Ù…Ù†ÙˆÙ‡Ø©ÛŒ']+$/i,
-                            bn: /^['à¦€à¦à¦‚à¦ƒà¦…à¦†à¦‡à¦ˆà¦‰à¦Šà¦‹à¦Œà¦à¦à¦“à¦”à¦•à¦–à¦—à¦˜à¦™à¦šà¦›à¦œà¦à¦žà¦Ÿà¦ à¦¡à¦¢à¦£à¦¤à¦¥à¦¦à¦§à¦¨à¦ªà¦«à¦¬à¦­à¦®à¦¯à¦°à¦²à¦¶à¦·à¦¸à¦¹à¦¼à¦½à¦¾à¦¿à§€à§à§‚à§ƒà§„à§‡à§ˆà§‹à§Œà§à§Žà§—à§œà§à§Ÿà§ à§¡à§¢à§£à§°à§±à§²à§³à§´à§µà§¶à§·à§¸à§¹à§ºà§»']+$/,
-                            "hi-IN": /^[\u0900-\u0961]+[\u0972-\u097F]*$/i,
-                            "si-LK": /^[\u0D80-\u0DFF]+$/
+                            "default": /^.*$/
                         }),
                         Qb = (Ie.alpha = Yb, {
-                            "en-US": /^[0-9A-Z]+$/i,
-                            "az-AZ": /^[0-9A-VXYZÃ‡ÆÄžÄ°Ä±Ã–ÅžÃœ]+$/i,
-                            "bg-BG": /^[0-9Ð-Ð¯]+$/i,
-                            "cs-CZ": /^[0-9A-ZÃÄŒÄŽÃ‰ÄšÃÅ‡Ã“Å˜Å Å¤ÃšÅ®ÃÅ½]+$/i,
-                            "da-DK": /^[0-9A-ZÃ†Ã˜Ã…]+$/i,
-                            "de-DE": /^[0-9A-ZÃ„Ã–ÃœÃŸ]+$/i,
-                            "el-GR": /^[0-9Î‘-Ï‰]+$/i,
-                            "es-ES": /^[0-9A-ZÃÃ‰ÃÃ‘Ã“ÃšÃœ]+$/i,
-                            "fi-FI": /^[0-9A-ZÃ…Ã„Ã–]+$/i,
-                            "fr-FR": /^[0-9A-ZÃ€Ã‚Ã†Ã‡Ã‰ÃˆÃŠÃ‹ÃÃŽÃ”Å’Ã™Ã›ÃœÅ¸]+$/i,
-                            "it-IT": /^[0-9A-ZÃ€Ã‰ÃˆÃŒÃŽÃ“Ã’Ã™]+$/i,
-                            "ja-JP": /^[0-9ï¼-ï¼™ã-ã‚“ã‚¡-ãƒ¶ï½¦-ï¾Ÿä¸€-é¾ ãƒ¼ãƒ»ã€‚ã€]+$/i,
-                            "hu-HU": /^[0-9A-ZÃÃ‰ÃÃ“Ã–ÅÃšÃœÅ°]+$/i,
-                            "nb-NO": /^[0-9A-ZÃ†Ã˜Ã…]+$/i,
-                            "nl-NL": /^[0-9A-ZÃÃ‰Ã‹ÃÃ“Ã–ÃœÃš]+$/i,
-                            "nn-NO": /^[0-9A-ZÃ†Ã˜Ã…]+$/i,
-                            "pl-PL": /^[0-9A-ZÄ„Ä†Ä˜ÅšÅÅƒÃ“Å»Å¹]+$/i,
-                            "pt-PT": /^[0-9A-ZÃƒÃÃ€Ã‚Ã„Ã‡Ã‰ÃŠÃ‹ÃÃÃ•Ã“Ã”Ã–ÃšÃœ]+$/i,
-                            "ru-RU": /^[0-9Ð-Ð¯Ð]+$/i,
-                            "sl-SI": /^[0-9A-ZÄŒÄ†ÄÅ Å½]+$/i,
-                            "sk-SK": /^[0-9A-ZÃÄŒÄŽÃ‰ÃÅ‡Ã“Å Å¤ÃšÃÅ½Ä¹Å”Ä½Ã„Ã”]+$/i,
-                            "sr-RS@latin": /^[0-9A-ZÄŒÄ†Å½Å Ä]+$/i,
-                            "sr-RS": /^[0-9Ð-Ð¯Ð‚ÐˆÐ‰ÐŠÐ‹Ð]+$/i,
-                            "sv-SE": /^[0-9A-ZÃ…Ã„Ã–]+$/i,
-                            "th-TH": /^[à¸-à¹™\s]+$/i,
-                            "tr-TR": /^[0-9A-ZÃ‡ÄžÄ°Ä±Ã–ÅžÃœ]+$/i,
-                            "uk-UA": /^[0-9Ð-Ð©Ð¬Ð®Ð¯Ð„IÐ‡ÒÑ–]+$/i,
-                            "ko-KR": /^[0-9ã„±-ã…Žã…-ã…£ê°€-íž£]*$/,
-                            "ku-IQ": /^[Ù Ù¡Ù¢Ù£Ù¤Ù¥Ù¦Ù§Ù¨Ù©0-9Ø¦Ø§Ø¨Ù¾ØªØ¬Ú†Ø­Ø®Ø¯Ø±Ú•Ø²Ú˜Ø³Ø´Ø¹ØºÙÚ¤Ù‚Ú©Ú¯Ù„ÚµÙ…Ù†ÙˆÛ†Ú¾Û•ÛŒÛŽÙŠØ·Ø¤Ø«Ø¢Ø¥Ø£ÙƒØ¶ØµØ©Ø¸Ø°]+$/i,
-                            "vi-VN": /^[0-9A-ZÃ€Ãáº áº¢ÃƒÃ‚áº¦áº¤áº¬áº¨áºªÄ‚áº°áº®áº¶áº²áº´ÄÃˆÃ‰áº¸áººáº¼ÃŠá»€áº¾á»†á»‚á»„ÃŒÃá»Šá»ˆÄ¨Ã’Ã“á»Œá»ŽÃ•Ã”á»’á»á»˜á»”á»–Æ á»œá»šá»¢á»žá» Ã™Ãšá»¤á»¦Å¨Æ¯á»ªá»¨á»°á»¬á»®á»²Ãá»´á»¶á»¸]+$/i,
-                            ar: /^[Ù Ù¡Ù¢Ù£Ù¤Ù¥Ù¦Ù§Ù¨Ù©0-9Ø¡Ø¢Ø£Ø¤Ø¥Ø¦Ø§Ø¨Ø©ØªØ«Ø¬Ø­Ø®Ø¯Ø°Ø±Ø²Ø³Ø´ØµØ¶Ø·Ø¸Ø¹ØºÙÙ‚ÙƒÙ„Ù…Ù†Ù‡ÙˆÙ‰ÙŠÙ‹ÙŒÙÙŽÙÙÙ‘Ù’Ù°]+$/,
-                            he: /^[0-9×-×ª]+$/,
-                            fa: /^['0-9Ø¢Ø§Ø¡Ø£Ø¤Ø¦Ø¨Ù¾ØªØ«Ø¬Ú†Ø­Ø®Ø¯Ø°Ø±Ø²Ú˜Ø³Ø´ØµØ¶Ø·Ø¸Ø¹ØºÙÙ‚Ú©Ú¯Ù„Ù…Ù†ÙˆÙ‡Ø©ÛŒÛ±Û²Û³Û´ÛµÛ¶Û·Û¸Û¹Û°']+$/i,
-                            bn: /^['à¦€à¦à¦‚à¦ƒà¦…à¦†à¦‡à¦ˆà¦‰à¦Šà¦‹à¦Œà¦à¦à¦“à¦”à¦•à¦–à¦—à¦˜à¦™à¦šà¦›à¦œà¦à¦žà¦Ÿà¦ à¦¡à¦¢à¦£à¦¤à¦¥à¦¦à¦§à¦¨à¦ªà¦«à¦¬à¦­à¦®à¦¯à¦°à¦²à¦¶à¦·à¦¸à¦¹à¦¼à¦½à¦¾à¦¿à§€à§à§‚à§ƒà§„à§‡à§ˆà§‹à§Œà§à§Žà§—à§œà§à§Ÿà§ à§¡à§¢à§£à§¦à§§à§¨à§©à§ªà§«à§¬à§­à§®à§¯à§°à§±à§²à§³à§´à§µà§¶à§·à§¸à§¹à§ºà§»']+$/,
-                            "hi-IN": /^[\u0900-\u0963]+[\u0966-\u097F]*$/i,
-                            "si-LK": /^[0-9\u0D80-\u0DFF]+$/
+                            "default": /^.*$/
                         }),
                         Jb = (Ie.alphanumeric = Qb, {
                             "en-US": ".",
@@ -17317,7 +17179,7 @@
                                 return le.wrap(function(e) {
                                     for (;;) switch (e.prev = e.next) {
                                         case 0:
-                                            return n = ["https://imasdk.googleapis.com/js/sdkloader/ima3_debug.js", "https://imasdk.googleapis.com/js/sdkloader/ima3.js", "http://imasdk.googleapis.com/js/sdkloader/ima3_debug.js", "http://imasdk.googleapis.com/js/sdkloader/ima3.js"], r = this.options.debug ? n[0] : n[1], e.next = 4, ii(r, "gdsdk_ima", {
+                                            return n = ["https://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js", "https://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js", "http://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js", "http://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js"], r = this.options.debug ? n[0] : n[1], e.next = 4, ii(r, "gdsdk_ima", {
                                                 alternates: n,
                                                 error_prefix: "Blocked:",
                                                 exists: function() {

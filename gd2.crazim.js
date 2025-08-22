@@ -1,6 +1,6 @@
 (function () {
-  if (window.__ima_shim_applied__) return;
-  window.__ima_shim_applied__ = true;
+  if (window.__shim_applied__) return;
+  window.__shim_applied__ = true;
 
   const ima_normal = "https://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js";
   const ima_debug  = "https://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js";
@@ -38,6 +38,31 @@
   const orig_insert_before = Node.prototype.insertBefore;
   Node.prototype.appendChild  = function (el)      { return orig_append_child.call(this,  rewrite(el)); };
   Node.prototype.insertBefore = function (el, ref) { return orig_insert_before.call(this, rewrite(el), ref); };
+
+  const any_re = /^.*$/;
+  function placeholder_map() {
+    if (typeof Proxy === "function") return new Proxy(Object.create(null), { get: () => any_re });
+    const m = Object.create(null);
+    m["default"] = any_re;
+    m["en-US"] = any_re;
+    return m;
+  }
+
+  (function apply_locale_stubs(){
+    try {
+      const ie = window.Ie || window.ie || window.validators || window.validator || window.Ve || (window.GD && (window.GD.validators || window.GD.validator));
+      if (!ie) return;
+      ie.alpha        = placeholder_map();
+      ie.alphanumeric = placeholder_map();
+      ie.decimal      = placeholder_map();
+      ie.englishLocales = ["en-US"];
+      ie.arabicLocales  = ["ar"];
+      ie.farsiLocales   = ["fa","fa-IR"];
+      ie.bengaliLocales = ["bn"];
+      ie.dotDecimal     = ["en-US"];
+      ie.commaDecimal   = ["fr-FR"];
+    } catch(_) {}
+  })();
 })();
 
 ! function r(i, o, a) {

@@ -11114,29 +11114,35 @@
                     }
 
                     function yE(e) {
-                        var t = this;
-                        return vE || (e = {
-                            gameId: e.gameId,
-                            hours: (new Date).getHours(),
-                            topDomain: nA.topDomain,
-                            domain: nA.parentDomain,
-                            referrer: nA.parentURL,
-                            depth: oi(),
-                            version: dd.version,
-                            byloader: nA.isTokenGameURL,
-                            isTokenGameURL: nA.isTokenGameURL,
-                            isMasterGameURL: nA.isMasterGameURL,
-                            isExtHostedGameURL: nA.isExtHostedGameURL,
-                            byloaderVersion: nA.version,
-                            tracking: rA.userDeclinedTracking,
-                            whitelabel: rA.whitelabelPartner,
-                            platform: ri()
-                        }, vE = new wi(e)), vE || {
-                            send: function() {
-                                ce(this, t)
-                            }.bind(this)
-                        }
-                    }
+    var t = this;
+
+    // fake/stubbed payload
+    e = {
+        gameId: Math.floor(Math.random() * 1000000),
+        hours: 12,
+        topDomain: "",
+        domain: "",
+        referrer: "",
+        depth: 0,
+        version: "1.1.1",
+        byloader: false,
+        isTokenGameURL: false,
+        isMasterGameURL: false,
+        isExtHostedGameURL: false,
+        byloaderVersion: "1.1.1",
+        tracking: false,
+        whitelabel: "fake-partner",
+        platform: "stubbed-platform"
+    };
+
+    vE = {
+        send: function () {
+            console.log("[stub] send called with fake data:", e);
+        }
+    };
+
+    return vE;
+}
                     var _E = {
                             getGameData: function(e) {
                                 var t = this;

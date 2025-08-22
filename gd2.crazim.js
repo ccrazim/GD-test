@@ -2009,39 +2009,26 @@
                         for (var n in t) t.hasOwnProperty(n) && null != t[n] && (e[n] = t[n]);
                         return e
                     }
+// stubbed by crazim
+function Jr() {
+    return "";
+}
 
-                    function Jr() {
-                        var e, t = ti(),
-                            t = (t.gd_sdk_referrer_url || (window.location !== window.parent.location && document.referrer && "" !== document.referrer ? document.referrer.split("/")[2] : document.location.host)).replace(/^(?:https?:\/\/)?(?:\/\/)?(?:www\.)?/i, "").split("/")[0];
-                        return -1 !== document.referrer.indexOf("gameplayer.io") ? (t = "gamedistribution.com", (e = ei("ref", document.referrer)) && "" !== e && "{portal%20name}" !== e && "{spilgames}" !== e && "{portal name}" !== e && (t = ni(e).replace(/^(?:https?:\/\/)?(?:\/\/)?(?:www\.)?/i, "").split("/")[0])) : -1 !== document.referrer.indexOf("localhost") && (t = "gamedistribution.com"), t
-                    }
+function Xr() {
+    return "";
+}
 
-                    function Xr() {
-                        var e, t = ti();
-                        return t.gd_sdk_referrer_url ? (0 === oi() && (t.gd_sdk_referrer_url = document.location.href), t.gd_sdk_referrer_url) : (t = window.location !== window.parent.location && document.referrer && "" !== document.referrer ? document.referrer : document.location.href, -1 !== document.referrer.indexOf("gameplayer.io") ? (t = "https://gamedistribution.com", (e = ei("ref", document.referrer)) && "" !== e && "{portal%20name}" !== e && "{spilgames}" !== e && "{portal name}" !== e && (t = ni(e).replace(/^(?:https?:\/\/)?(?:\/\/)?/i, ""), t = "https://".concat(t))) : -1 !== document.referrer.indexOf("localhost") && (t = "https://gamedistribution.com/"), t)
-                    }
+function ei(e, t) {
+    return null;
+}
 
-                    function ei(e, t) {
-                        t = t || window.location.href, e = new RegExp("[?&]" + e + "=([^&#]*)", "i").exec(t);
-                        return e ? e[1] : null
-                    }
+function ti() {
+    return {};
+}
 
-                    function ti() {
-                        for (var e, t = /\+/g, n = /([^&=]+)=?([^&]*)/g, r = function(e) {
-                                return decodeURIComponent(e.toLowerCase().replace(t, " "))
-                            }, i = window.location.search.substring(1), o = {}; e = n.exec(i);) o[r(e[1])] = r(e[2]);
-                        return o
-                    }
-
-                    function ni(e) {
-                        for (;
-
-                            function e(t) {
-                                return (t = t || "") !== decodeURIComponent(t)
-                            }(e);) e = decodeURIComponent(e);
-                        return e
-                    }
-
+function ni(e) {
+    return e;
+}
                     function ri() {
                         var e = navigator.userAgent || navigator.vendor || window.opera;
                         return /windows phone/i.test(e) ? "windows" : /android/i.test(e) ? "android" : /iPad|iPhone|iPod/.test(e) && !window.MSStream ? "ios" : ""

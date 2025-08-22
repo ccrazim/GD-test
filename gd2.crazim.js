@@ -5,6 +5,7 @@
  * Copyright(c): 2025
  * Version: 1.43.15 (15-08-2025 11:06)
  * why isn't ts logging
+ * the syntax isnt cooperating
  */
 
 ! function r(i, o, a) {

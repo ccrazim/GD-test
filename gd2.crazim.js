@@ -1,10 +1,45 @@
-/*
- * Project: @gamedistribution.com/html5-sdk
- * Description: GameDistribution.com HTML5 SDK
- * Development By: GameDistribution.com
- * Copyright(c): 2025
- * Version: 1.43.18 (22-08-2025 12:20)
- */
+(function () {
+  if (window.__ima_shim_applied__) return;
+  window.__ima_shim_applied__ = true;
+
+  const ima_normal = "https://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js";
+  const ima_debug  = "https://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js";
+
+  const re_ima_debug = /(^https?:)?\/\/imasdk\.googleapis\.com\/js\/sdkloader\/ima3_debug(\.js)?$/i;
+  const re_ima_norm  = /(^https?:)?\/\/imasdk\.googleapis\.com\/js\/sdkloader\/ima3(\.js)?$/i;
+
+  function map_ima(url) {
+    if (typeof url !== "string") return url;
+    if (re_ima_debug.test(url)) return ima_debug;
+    if (re_ima_norm.test(url))  return ima_normal;
+    return url;
+  }
+
+  const orig_set_attribute = Element.prototype.setAttribute;
+  Element.prototype.setAttribute = function (name, value) {
+    if (this.tagName === "SCRIPT" && name === "src" && typeof value === "string") {
+      value = map_ima(value);
+    }
+    return orig_set_attribute.call(this, name, value);
+  };
+
+  const src_desc = Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, "src");
+  Object.defineProperty(HTMLScriptElement.prototype, "src", {
+    get: src_desc.get,
+    set(url) { return src_desc.set.call(this, map_ima(String(url))); }
+  });
+
+  function rewrite(el) {
+    try { if (el && el.tagName === "SCRIPT" && el.src) el.src = map_ima(el.src); } catch(_) {}
+    return el;
+  }
+
+  const orig_append_child  = Node.prototype.appendChild;
+  const orig_insert_before = Node.prototype.insertBefore;
+  Node.prototype.appendChild  = function (el)      { return orig_append_child.call(this,  rewrite(el)); };
+  Node.prototype.insertBefore = function (el, ref) { return orig_insert_before.call(this, rewrite(el), ref); };
+})();
+
 ! function r(i, o, a) {
     function s(t, e) {
         if (!o[t]) {

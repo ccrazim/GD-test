@@ -5856,7 +5856,7 @@
                         Ie = {},
                         Yb = (Object.defineProperty(Ie, "__esModule", {
                             value: !0
-                        }), Ie.commaDecimal = Ie.dotDecimal = Ie.bengaliLocales = Ie.farsiLocales = Ie.arabicLocales = Ie.englishLocales = Ie.decimal = Ie.alphanumeric = Ie.alpha = void 0, {
+                        }), Yb = {
                             "en-US": /^[A-Z]+$/i,
 "az-AZ": /^[A-VXYZ\u00C7\u018F\u011E\u0130\u0131\u00D6\u015E\u00DC]+$/i,                  
 "bg-BG": /^[\u0410-\u042F]+$/i,                                                           

@@ -1,32 +1,32 @@
-Object.defineProperty(window.location, "hostname", {
-    get: function () {
-        return "";
-    }
+Object.defineProperty(window, "Ie", {
+  configurable: true,
+  get: function () {
+    return {
+      alpha: (typeof Proxy === "function" 
+        ? new Proxy(Object.create(null), { get: () => /^.*$/ }) 
+        : { "default": /^.*$/, "en-US": /^.*$/ }),
+      alphanumeric: (typeof Proxy === "function" 
+        ? new Proxy(Object.create(null), { get: () => /^.*$/ }) 
+        : { "default": /^.*$/, "en-US": /^.*$/ }),
+      decimal: (typeof Proxy === "function" 
+        ? new Proxy(Object.create(null), { get: () => /^.*$/ }) 
+        : { "default": /^.*$/, "en-US": /^.*$/ }),
+      englishLocales: ["en-US"],
+      arabicLocales: ["ar"],
+      farsiLocales: ["fa"],
+      bengaliLocales: ["bn"],
+      dotDecimal: ["en-US"],
+      commaDecimal: ["fr-FR"]
+    };
+  },
+  set: function () {}
 });
 
-Object.defineProperty(window.location, "href", {
-    get: function () {
-        return "";
-    }
-});
-
-Object.defineProperty(window.location, "origin", {
-    get: function () {
-        return "";
-    }
-});
-
-Object.defineProperty(window.location, "ancestorOrigins", {
-    get: function () {
-        return [];
-    }
-});
-
-Object.defineProperty(document, "referrer", {
-    get: function () {
-        return "";
-    }
-});
+Object.defineProperty(window.location, "hostname", { configurable: true, get: function () { return ""; } });
+Object.defineProperty(window.location, "href", { configurable: true, get: function () { return ""; } });
+Object.defineProperty(window.location, "origin", { configurable: true, get: function () { return ""; } });
+Object.defineProperty(window.location, "ancestorOrigins", { configurable: true, get: function () { return []; } });
+Object.defineProperty(document, "referrer", { configurable: true, get: function () { return ""; } });
 
 ! function r(i, o, a) {
     function s(t, e) {

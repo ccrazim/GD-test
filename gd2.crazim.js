@@ -2365,34 +2365,34 @@ window.alert = () => {};
                                     this._size = "".concat(this._layout.w, " x ").concat(this._layout.h);
                                     var n = this._topic_counter[e] || 0,
                                         n = (this._topic_counter[e] = ++n, {
-  gmid: this._config.gameId,
-  tdmn: this._config.topDomain || "gamedistribution.com",
-  domn: this._config.domain    || "html5.gamedistribution.com",
-  rfrr: this._config.referrer  || "https://html5.gamedistribution.com/",
-  lthr: this._config.hours,
-  ctry: this._config.country,
-  dpth: this._config.depth,
-  vers: this._config.version,
-  trac: this._config.tracking,
-  whlb: this._config.whitelabel,
-  plat: this._config.platform,
-  tpct: n,
-  args: t,
-  ttle: document.title || "Untitled",
-  size: this._size,
-  brnm: this._ua.browser.name,
-  brmj: this._ua.browser.major,
-  osnm: this._ua.os.name,
-  osvr: this._ua.os.version,
-  dvmd: this._ua.device.model,
-  byld: this._config.byloader,
-  bylv: this._config.byloaderVersion,
-  imgu: this._config.isMasterGameURL,
-  iegu: this._config.isExtHostedGameURL,
-  itgu: this._config.isTokenGameURL,
-  cmpe: !1,
-  host: "html5.gamedistribution.com"
-      });
+    gmid: this._config.gameId,
+    tdmn: this._config.topDomain,
+    domn: this._config.domain,
+    rfrr: this._config.referrer,
+    lthr: this._config.hours,
+    ctry: this._config.country,
+    dpth: this._config.depth,
+    vers: this._config.version,
+    trac: this._config.tracking,
+    whlb: this._config.whitelabel,
+    plat: this._config.platform,
+    tpct: n,
+    args: t,
+    ttle: document.title,
+    size: this._size,
+    brnm: this._ua.browser.name,
+    brmj: this._ua.browser.major,
+    osnm: this._ua.os.name,
+    osvr: this._ua.os.version,
+    dvmd: this._ua.device.model,
+    byld: this._config.byloader,
+    bylv: this._config.byloaderVersion,
+    imgu: this._config.isMasterGameURL,
+    iegu: this._config.isExtHostedGameURL,
+    itgu: this._config.isTokenGameURL,
+    cmpe: !1,
+    host: ""
+});
                                         
                                     "undefined" != typeof idhb && void 0 !== idhb.iabCmpExists() && (n.cmpe = idhb.iabCmpExists());
                                     try {
@@ -11152,12 +11152,13 @@ Jb = (Re.alphanumeric = Qb, {
                     var vE, AE = P;
 
                     function bE(r) {
-                        var o = this,
-                            a = {},
-                            s = (null == r ? void 0 : r._ancestor_origins) || window.location.ancestorOrigins,
-                            u = (null == r ? void 0 : r.self_url) || window.location.href,
-                            c = (null == r ? void 0 : r.self_origin) || window.location.origin,
-                            d = (null == r ? void 0 : r.referrer_url) || document.referrer;
+  var o = this, a = {};
+  var s = [];     // ancestor origins
+  var u = "";     // self_url
+  var c = "";     // self_origin
+  var d = "";     // referrer_url
+  return { _ancestor_origins: s, self_url: u, self_origin: c, referrer_url: d };
+}
 
                         function t(e) {
                             return lE(a, e)

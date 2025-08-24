@@ -11151,14 +11151,14 @@ Jb = (Re.alphanumeric = Qb, {
                     };
                     var vE, AE = P;
 
-                    function bE(r) {
-  var o = this, a = {};
-  var s = (r?._ancestor_origins) || "";
-  var u = (r?.self_url)         || "";
-  var c = (r?.self_origin)      || "";
-  var d = (r?.referrer_url)     || "";
-  return { _ancestor_origins: s, self_url: u, self_origin: c, referrer_url: d };
-}
+                    /* function bE(r) {
+                        var o = this,
+                            a = {},
+                            s = (null == r ? void 0 : r._ancestor_origins) || window.location.ancestorOrigins,
+                            u = (null == r ? void 0 : r.self_url) || window.location.href,
+                            c = (null == r ? void 0 : r.self_origin) || window.location.origin,
+                            d = (null == r ? void 0 : r.referrer_url) || document.referrer;
+} */
 
                         function t(e) {
                             return lE(a, e)

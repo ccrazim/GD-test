@@ -20931,17 +20931,8 @@ Jb = (Re.alphanumeric = Qb, {
                                                 break;
                                             case 6:
                                                 e.prev = 6, e.t0 = e.catch(1), console.log("Could not send dump.token-blocked", e.t0);
-                                            /* case 9:
-                                                window.location.href = "https://html5.api.gamedistribution.com/blocked.html?".concat(Je.stringify({
-                                                    domain: n._parentDomain,
-                                                    id: i.gameId,
-                                                    img: n._get_game_thumbnail_url(),
-                                                    title: i.title,
-                                                    unregistered: r,
-                                                    utm_source: n._parentDomain,
-                                                    utm_medium: (null == i ? void 0 : i.slug) || (null == i ? void 0 : i.title) || (null == i ? void 0 : i.gameId) || "unknown",
-                                                    utm_campaign: "block-and-redirect"
-                                                })); */
+                                            case 9:
+    return;
                                             case 10:
                                             case "end":
                                                 return e.stop()

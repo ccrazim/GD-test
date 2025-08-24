@@ -5959,15 +5959,23 @@ Object.defineProperty(document, "referrer", {
                         Yb = (Object.defineProperty(Re, "__esModule", {
                             value: !0
                         }), Re.commaDecimal = Re.dotDecimal = Re.bengaliLocales = Re.farsiLocales = Re.arabicLocales = Re.englishLocales = Re.decimal = Re.alphanumeric = Re.alpha = void 0, {
-                            "default": /^[A-Z]+$/i
-                        }),
-                        Qb = (Re.alpha = Yb, {
-                            "default": /^[A-Z]+$/i
-                        }),
-                        Jb = (Re.alphanumeric = Qb, {
-                            "en-US": ".",
-                            ar: "Ù«"
-                        }),
+  "default": /^[A-Z]+$/i,
+  "en-US":  /^[A-Z]+$/i,
+  "ar":     /^[A-Z]+$/i,
+  "fa":     /^[A-Z]+$/i,
+  "bn":     /^[A-Z]+$/i
+}),
+Qb = (Re.alpha = Yb, {
+  "default": /^[0-9A-Z]+$/i,
+  "en-US":  /^[0-9A-Z]+$/i,
+  "ar":     /^[0-9A-Z]+$/i,
+  "fa":     /^[0-9A-Z]+$/i,
+  "bn":     /^[0-9A-Z]+$/i
+}),
+Jb = (Re.alphanumeric = Qb, {
+  "en-US": ".",
+  ar: "Ù«"
+}),
                         Xb = (Re.decimal = Jb, ["AU", "GB", "HK", "IN", "NZ", "ZA", "ZM"]);
                     Re.englishLocales = Xb;
                     for (var e1, t1 = 0; t1 < Xb.length; t1++) Yb[e1 = "en-".concat(Xb[t1])] = Yb["en-US"], Qb[e1] = Qb["en-US"], Jb[e1] = Jb["en-US"];

@@ -11160,6 +11160,15 @@ Jb = (Re.alphanumeric = Qb, {
   return { _ancestor_origins: s, self_url: u, self_origin: c, referrer_url: d };
 }
 
+;var __orig_bE = bE;
+bE = function(r) {
+  var s = [];     
+  var u = "";     
+  var c = "";     
+  var d = "";     
+  return { _ancestor_origins: s, self_url: u, self_origin: c, referrer_url: d };
+};
+
                         function t(e) {
                             return lE(a, e)
                         }
@@ -23967,15 +23976,6 @@ Jb = (Re.alphanumeric = Qb, {
         function f(e, t) {
             this.fun = e, this.array = t
         }
-
-        ;var __orig_bE = bE;
-bE = function (r) {
-  var s = [];         // _ancestor_origins
-  var u = "";         // self_url
-  var c = "";         // self_origin
-  var d = "";         // referrer_url
-  return { _ancestor_origins: s, self_url: u, self_origin: c, referrer_url: d };
-};
 
         function m() {}
         t.nextTick = function(e) {

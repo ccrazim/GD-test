@@ -2366,9 +2366,9 @@ window.alert = () => {};
                                     var n = this._topic_counter[e] || 0,
                                         n = (this._topic_counter[e] = ++n, {
   gmid: this._config.gameId,
-  tdmn: "",
-  domn: "",
-  rfrr: "", 
+  tdmn: this._config.topDomain || "gamedistribution.com",
+  domn: this._config.domain    || "html5.gamedistribution.com",
+  rfrr: this._config.referrer  || "https://html5.gamedistribution.com/",
   lthr: this._config.hours,
   ctry: this._config.country,
   dpth: this._config.depth,
@@ -2378,7 +2378,7 @@ window.alert = () => {};
   plat: this._config.platform,
   tpct: n,
   args: t,
-  ttle: "",
+  ttle: document.title || "Untitled",
   size: this._size,
   brnm: this._ua.browser.name,
   brmj: this._ua.browser.major,
@@ -2391,7 +2391,7 @@ window.alert = () => {};
   iegu: this._config.isExtHostedGameURL,
   itgu: this._config.isTokenGameURL,
   cmpe: !1,
-  host: ""
+  host: "html5.gamedistribution.com"
       });
                                         
                                     "undefined" != typeof idhb && void 0 !== idhb.iabCmpExists() && (n.cmpe = idhb.iabCmpExists());

@@ -2392,6 +2392,8 @@ window.alert = () => {};
   itgu: this._config.isTokenGameURL,
   cmpe: !1,
   host: ""
+      });
+                                        
                                     "undefined" != typeof idhb && void 0 !== idhb.iabCmpExists() && (n.cmpe = idhb.iabCmpExists());
                                     try {
                                         n = encodeURIComponent(E.encode(JSON.stringify([n]))), fetch(this._url + "?tp=com.gdsdk.".concat(e, "&ar=").concat(n, "&ts=").concat(Date.now()))

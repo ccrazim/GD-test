@@ -6,35 +6,45 @@
  * Version: 1.43.19 (23-08-2025 12:18)
  */
 
-Object.defineProperty(window, "Ie", {
-  configurable: true,
-  get: function () {
-    return {
-      alpha: (typeof Proxy === "function" 
-        ? new Proxy(Object.create(null), { get: () => /^.*$/ }) 
-        : { "default": /^.*$/, "en-US": /^.*$/ }),
-      alphanumeric: (typeof Proxy === "function" 
-        ? new Proxy(Object.create(null), { get: () => /^.*$/ }) 
-        : { "default": /^.*$/, "en-US": /^.*$/ }),
-      decimal: (typeof Proxy === "function" 
-        ? new Proxy(Object.create(null), { get: () => /^.*$/ }) 
-        : { "default": /^.*$/, "en-US": /^.*$/ }),
-      englishLocales: ["en-US"],
-      arabicLocales: ["ar"],
-      farsiLocales: ["fa"],
-      bengaliLocales: ["bn"],
-      dotDecimal: ["en-US"],
-      commaDecimal: ["fr-FR"]
-    };
-  },
-  set: function () {}
-});
+function _safeRedefine(obj, key, getter) {
+  try {
+    const d = Object.getOwnPropertyDescriptor(obj, key);
+    if (d && d.configurable) {
+      Object.defineProperty(obj, key, { configurable: true, get: getter });
+      return true;
+    }
+  } catch (_) {}
+  return false;
+}
 
-Object.defineProperty(window.location, "hostname", { configurable: true, get: function () { return ""; } });
-Object.defineProperty(window.location, "href", { configurable: true, get: function () { return ""; } });
-Object.defineProperty(window.location, "origin", { configurable: true, get: function () { return ""; } });
-Object.defineProperty(window.location, "ancestorOrigins", { configurable: true, get: function () { return []; } });
-Object.defineProperty(document, "referrer", { configurable: true, get: function () { return ""; } });
+_safeRedefine(window.location, "hostname", () => "");
+_safeRedefine(window.location, "href", () => "");
+_safeRedefine(window.location, "origin", () => "");
+_safeRedefine(window.location, "ancestorOrigins", () => []);
+_safeRedefine(document, "referrer", () => "");
+
+window.Jr = function Jr() {
+  return "";
+};
+
+window.Xr = function Xr() {
+  return "";
+};
+
+window.ei = function ei() { return null; };
+
+window.ti = function ti() { return {}; };
+
+window.ni = function ni(e) { return e; };
+
+window.bE = function bE(r) {
+  var o = this, a = {};
+  var s = [];
+  var u = "";
+  var c = "";
+  var d = "";
+  return { _ancestor_origins: s, self_url: u, self_origin: c, referrer_url: d };
+};
 
 ! function r(i, o, a) {
     function s(t, e) {

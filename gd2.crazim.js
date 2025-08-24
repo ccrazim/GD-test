@@ -6,6 +6,34 @@
  * Version: 1.43.19 (23-08-2025 12:18)
  */
 
+Object.defineProperty(window, "Ie", {
+  configurable: true,
+  get: function () {
+    const any_re = /^.*$/;
+    function placeholder() {
+      if (typeof Proxy === "function") {
+        return new Proxy(Object.create(null), { get: () => any_re });
+      }
+      const m = Object.create(null);
+      m["default"] = any_re;
+      m["en-US"] = any_re;
+      return m;
+    }
+    return {
+      alpha: placeholder(),
+      alphanumeric: placeholder(),
+      decimal: placeholder(),
+      englishLocales: ["en-US"],
+      arabicLocales: ["ar"],
+      farsiLocales: ["fa"],
+      bengaliLocales: ["bn"],
+      dotDecimal: ["en-US"],
+      commaDecimal: ["fr-FR"]
+    };
+  },
+  set: function () {}
+});
+
 function _safeRedefine(obj, key, getter) {
   try {
     const d = Object.getOwnPropertyDescriptor(obj, key);

@@ -6,50 +6,55 @@
  * Version: 1.43.19 (23-08-2025 12:18)
  */
 
-function _safeRedefine(obj, key, getter) {
-  try {
-    const d = Object.getOwnPropertyDescriptor(obj, key);
-    if (d && d.configurable) {
-      Object.defineProperty(obj, key, { configurable: true, get: getter });
-      return true;
+Object.defineProperty(window.location, "hostname", {
+    get: function() {
+        return "";
     }
-  } catch (_) {}
-  return false;
-}
+});
 
-(function(){
-  const P = Object.getPrototypeOf(window.location) || (typeof Location!=="undefined" && Location.prototype);
-  const props = ["hostname","host","href","origin","search","hash","pathname","protocol","port","ancestorOrigins"];
-  const getters = {
-    hostname: () => "",
-    host: () => "",
-    href: () => "",
-    origin: () => "",
-    search: () => "",
-    hash: () => "",
-    pathname: () => "",
-    protocol: () => "",
-    port: () => "",
-    ancestorOrigins: () => []
-  };
-  for (const k of props) {
-    if (!(P && _safeRedefine(P, k, getters[k]))) {
-      _safeRedefine(window.location, k, getters[k]);
+Object.defineProperty(window.location, "href", {
+    get: function() {
+        return "";
     }
-  }
-  _safeRedefine(document, "referrer", () => "");
-})();
+});
 
-window.Jr = function Jr(){ return ""; };
-window.Xr = function Xr(){ return ""; };
-window.ei = function ei(){ return null; };
-window.ti = function ti(){ return {}; };
-window.ni = function ni(e){ return e; };
-window.bE = function bE(r){
-  var o=this,a={};
-  var s=[],u="",c="",d="";
-  return {_ancestor_origins:s,self_url:u,self_origin:c,referrer_url:d};
-};
+Object.defineProperty(window.location, "origin", {
+    get: function() {
+        return "";
+    }
+});
+
+Object.defineProperty(window.location, "ancestorOrigins", {
+    get: function() {
+        return [];
+    }
+});
+
+Object.defineProperty(document, "referrer", {
+    get: function() {
+        return "";
+    }
+});
+
+Object.defineProperty(window, "Re", {
+  configurable: true,
+  get: function () {
+    const any = /^.*$/;
+    const map = (typeof Proxy==="function" ? new Proxy(Object.create(null),{get:()=>any}) : {"default":any,"en-US":any});
+    return {
+      alpha: map,
+      alphanumeric: map,
+      decimal: map,
+      englishLocales:["en-US"],
+      arabicLocales:["ar"],
+      farsiLocales:["fa"],
+      bengaliLocales:["bn"],
+      dotDecimal:["en-US"],
+      commaDecimal:["fr-FR"]
+    };
+  },
+  set: function () {}
+});
 
 Object.defineProperty(window, "Ie", {
   configurable: true,

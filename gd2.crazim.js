@@ -8,36 +8,6 @@
 
 window.alert = () => {};
 
-Object.defineProperty(window.location, "hostname", {
-    get: function() {
-        return "";
-    }
-});
-
-Object.defineProperty(window.location, "href", {
-    get: function() {
-        return "";
-    }
-});
-
-Object.defineProperty(window.location, "origin", {
-    get: function() {
-        return "";
-    }
-});
-
-Object.defineProperty(window.location, "ancestorOrigins", {
-    get: function() {
-        return [];
-    }
-});
-
-Object.defineProperty(document, "referrer", {
-    get: function() {
-        return "";
-    }
-});
-
 ! function r(i, o, a) {
     function s(t, e) {
         if (!o[t]) {

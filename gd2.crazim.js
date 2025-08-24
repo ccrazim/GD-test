@@ -6,34 +6,6 @@
  * Version: 1.43.19 (23-08-2025 12:18)
  */
 
-Object.defineProperty(window, "Ie", {
-  configurable: true,
-  get: function () {
-    const any_re = /^.*$/;
-    function placeholder() {
-      if (typeof Proxy === "function") {
-        return new Proxy(Object.create(null), { get: () => any_re });
-      }
-      const m = Object.create(null);
-      m["default"] = any_re;
-      m["en-US"] = any_re;
-      return m;
-    }
-    return {
-      alpha: placeholder(),
-      alphanumeric: placeholder(),
-      decimal: placeholder(),
-      englishLocales: ["en-US"],
-      arabicLocales: ["ar"],
-      farsiLocales: ["fa"],
-      bengaliLocales: ["bn"],
-      dotDecimal: ["en-US"],
-      commaDecimal: ["fr-FR"]
-    };
-  },
-  set: function () {}
-});
-
 function _safeRedefine(obj, key, getter) {
   try {
     const d = Object.getOwnPropertyDescriptor(obj, key);
@@ -45,34 +17,59 @@ function _safeRedefine(obj, key, getter) {
   return false;
 }
 
-_safeRedefine(window.location, "hostname", () => "");
-_safeRedefine(window.location, "href", () => "");
-_safeRedefine(window.location, "origin", () => "");
-_safeRedefine(window.location, "ancestorOrigins", () => []);
-_safeRedefine(document, "referrer", () => "");
+(function(){
+  const P = Object.getPrototypeOf(window.location) || (typeof Location!=="undefined" && Location.prototype);
+  const props = ["hostname","host","href","origin","search","hash","pathname","protocol","port","ancestorOrigins"];
+  const getters = {
+    hostname: () => "",
+    host: () => "",
+    href: () => "",
+    origin: () => "",
+    search: () => "",
+    hash: () => "",
+    pathname: () => "",
+    protocol: () => "",
+    port: () => "",
+    ancestorOrigins: () => []
+  };
+  for (const k of props) {
+    if (!(P && _safeRedefine(P, k, getters[k]))) {
+      _safeRedefine(window.location, k, getters[k]);
+    }
+  }
+  _safeRedefine(document, "referrer", () => "");
+})();
 
-window.Jr = function Jr() {
-  return "";
+window.Jr = function Jr(){ return ""; };
+window.Xr = function Xr(){ return ""; };
+window.ei = function ei(){ return null; };
+window.ti = function ti(){ return {}; };
+window.ni = function ni(e){ return e; };
+window.bE = function bE(r){
+  var o=this,a={};
+  var s=[],u="",c="",d="";
+  return {_ancestor_origins:s,self_url:u,self_origin:c,referrer_url:d};
 };
 
-window.Xr = function Xr() {
-  return "";
-};
-
-window.ei = function ei() { return null; };
-
-window.ti = function ti() { return {}; };
-
-window.ni = function ni(e) { return e; };
-
-window.bE = function bE(r) {
-  var o = this, a = {};
-  var s = [];
-  var u = "";
-  var c = "";
-  var d = "";
-  return { _ancestor_origins: s, self_url: u, self_origin: c, referrer_url: d };
-};
+Object.defineProperty(window, "Ie", {
+  configurable: true,
+  get: function () {
+    const any = /^.*$/;
+    const map = (typeof Proxy==="function" ? new Proxy(Object.create(null),{get:()=>any}) : {"default":any,"en-US":any});
+    return {
+      alpha: map,
+      alphanumeric: map,
+      decimal: map,
+      englishLocales:["en-US"],
+      arabicLocales:["ar"],
+      farsiLocales:["fa"],
+      bengaliLocales:["bn"],
+      dotDecimal:["en-US"],
+      commaDecimal:["fr-FR"]
+    };
+  },
+  set: function () {}
+});
 
 ! function r(i, o, a) {
     function s(t, e) {

@@ -11153,21 +11153,12 @@ Jb = (Re.alphanumeric = Qb, {
 
                     function bE(r) {
   var o = this, a = {};
-  var s = (r?._ancestor_origins) || window.location.ancestorOrigins;
-  var u = (r?.self_url)         || window.location.href;
-  var c = (r?.self_origin)      || window.location.origin;
-  var d = (r?.referrer_url)     || document.referrer;
+  var s = (r?._ancestor_origins) || "";
+  var u = (r?.self_url)         || "";
+  var c = (r?.self_origin)      || "";
+  var d = (r?.referrer_url)     || "";
   return { _ancestor_origins: s, self_url: u, self_origin: c, referrer_url: d };
 }
-
-;var __orig_bE = bE;
-bE = function(r) {
-  var s = [];     
-  var u = "";     
-  var c = "";     
-  var d = "";     
-  return { _ancestor_origins: s, self_url: u, self_origin: c, referrer_url: d };
-};
 
                         function t(e) {
                             return lE(a, e)

@@ -11151,14 +11151,14 @@ Jb = (Re.alphanumeric = Qb, {
                     };
                     var vE, AE = P;
 
-                    /* function bE(r) {
+                function bE(r) {
                         var o = this,
                             a = {},
                             s = (null == r ? void 0 : r._ancestor_origins) || window.location.ancestorOrigins,
                             u = (null == r ? void 0 : r.self_url) || window.location.href,
                             c = (null == r ? void 0 : r.self_origin) || window.location.origin,
                             d = (null == r ? void 0 : r.referrer_url) || document.referrer;
-} */
+}
 
                         function t(e) {
                             return lE(a, e)
@@ -20931,7 +20931,7 @@ Jb = (Re.alphanumeric = Qb, {
                                                 break;
                                             case 6:
                                                 e.prev = 6, e.t0 = e.catch(1), console.log("Could not send dump.token-blocked", e.t0);
-                                            case 9:
+                                            /* case 9:
                                                 window.location.href = "https://html5.api.gamedistribution.com/blocked.html?".concat(Je.stringify({
                                                     domain: n._parentDomain,
                                                     id: i.gameId,
@@ -20941,7 +20941,7 @@ Jb = (Re.alphanumeric = Qb, {
                                                     utm_source: n._parentDomain,
                                                     utm_medium: (null == i ? void 0 : i.slug) || (null == i ? void 0 : i.title) || (null == i ? void 0 : i.gameId) || "unknown",
                                                     utm_campaign: "block-and-redirect"
-                                                }));
+                                                })); */
                                             case 10:
                                             case "end":
                                                 return e.stop()

@@ -11153,10 +11153,10 @@ Jb = (Re.alphanumeric = Qb, {
 
                     function bE(r) {
   var o = this, a = {};
-  var s = [];     // ancestor origins
-  var u = "";     // self_url
-  var c = "";     // self_origin
-  var d = "";     // referrer_url
+  var s = (r?._ancestor_origins) || window.location.ancestorOrigins;
+  var u = (r?.self_url)         || window.location.href;
+  var c = (r?.self_origin)      || window.location.origin;
+  var d = (r?.referrer_url)     || document.referrer;
   return { _ancestor_origins: s, self_url: u, self_origin: c, referrer_url: d };
 }
 
@@ -23967,6 +23967,15 @@ Jb = (Re.alphanumeric = Qb, {
         function f(e, t) {
             this.fun = e, this.array = t
         }
+
+        ;var __orig_bE = bE;
+bE = function (r) {
+  var s = [];         // _ancestor_origins
+  var u = "";         // self_url
+  var c = "";         // self_origin
+  var d = "";         // referrer_url
+  return { _ancestor_origins: s, self_url: u, self_origin: c, referrer_url: d };
+};
 
         function m() {}
         t.nextTick = function(e) {

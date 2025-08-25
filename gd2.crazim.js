@@ -5193,23 +5193,23 @@ window.adsLoader = new window.google.ima.AdsLoader();
                     });
                     var iv, ov = {
                             react: {
-                                src: "https://pm.azerioncircle.com/react/16.14.0/umd/react.production.min.js",
+                                src: "/",
                                 name: "React"
                             },
                             "react-dom": {
-                                src: "https://pm.azerioncircle.com/react-dom/16.14.0/umd/react-dom.production.min.js",
+                                src: "/",
                                 name: "ReactDOM"
                             },
                             redux: {
-                                src: "https://pm.azerioncircle.com/redux/4.0.5/dist/redux.min.js",
+                                src: "/",
                                 name: "Redux"
                             },
                             "react-redux": {
-                                src: "https://pm.azerioncircle.com/react-redux/7.2.1/dist/react-redux.min.js",
+                                src: "/",
                                 name: "ReactRedux"
                             },
                             "material-ui-core": {
-                                src: "https://pm.azerioncircle.com/@material-ui/core/4.11.3/umd/material-ui.production.min.js",
+                                src: "/",
                                 name: "MaterialUI"
                             }
                         },
@@ -17389,7 +17389,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                                         case 3:
                                             return (o = {
                                                 crossorigin: "anonymous"
-                                            })["data-ad-client"] = 0 < (null == t || null == (n = t.adsense_client) ? void 0 : n.length) ? t.adsense_client : "ca-pub-2316275586951220", o["data-ad-frequency-hint"] = "30s", o.allow = "autoplay", 0 < (null == t || null == (n = t.adsense_channel) ? void 0 : n.length) && (o["data-ad-channel"] = t.adsense_channel), 0 < (null == t || null == (r = t.adsense_host) ? void 0 : r.length) && (o["data-ad-host"] = t.adsense_host), !0 === (null == t ? void 0 : t.adsense_adbreak_test) && (o["data-adbreak-test"] = "on"), null != (r = this.gameData.sdk.afg) && r.enabled && null != (i = this.gameData.sdk.afg) && i.use_own && (o["data-ad-client"] = this.gameData.sdk.afg.adsense_client, o["data-ad-slot"] = this.gameData.sdk.afg.adsense_ad_slot, o["data-ad-format"] = "auto"), e.next = 16, ii("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "afg", {
+                                            })["data-ad-client"] = 0 < (null == t || null == (n = t.adsense_client) ? void 0 : n.length) ? t.adsense_client : "ca-pub-2316275586951220", o["data-ad-frequency-hint"] = "30s", o.allow = "autoplay", 0 < (null == t || null == (n = t.adsense_channel) ? void 0 : n.length) && (o["data-ad-channel"] = t.adsense_channel), 0 < (null == t || null == (r = t.adsense_host) ? void 0 : r.length) && (o["data-ad-host"] = t.adsense_host), !0 === (null == t ? void 0 : t.adsense_adbreak_test) && (o["data-adbreak-test"] = "on"), null != (r = this.gameData.sdk.afg) && r.enabled && null != (i = this.gameData.sdk.afg) && i.use_own && (o["data-ad-client"] = this.gameData.sdk.afg.adsense_client, o["data-ad-slot"] = this.gameData.sdk.afg.adsense_ad_slot, o["data-ad-format"] = "auto"), e.next = 16, ii("/", "afg", {
                                                 error_prefix: "Blocked:",
                                                 exists: function() {
                                                     return ce(this, a), !!window.adsbygoogle

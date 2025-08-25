@@ -5,6 +5,99 @@
  * Copyright(c): 2025
  * Version: 1.43.19 (23-08-2025 12:18)
  */
+window.alert = () => {};
+const patchShowAdEverywhere = () => {
+    for (const e in window) try {
+        const t = window[e];
+        "function" == typeof t && t.prototype && t.prototype.showAd && (console.log("[patch] Overriding showAd on:", e), t.prototype.showAd = async function() {
+            return console.log("[stub] Intercepted showAd call from SDK class."), {
+                adType: "rewarded",
+                adViewed: !0,
+                wasSkipped: !1,
+                error: null
+            }
+        })
+    } catch (e) {}
+};
+if (patchShowAdEverywhere(), window.showAd = async function() {
+            return console.log("[stub] showAd called"), {
+                adType: "rewarded",
+                adViewed: !0,
+                wasSkipped: !1,
+                error: null
+            }
+        }, window.google = window.google || {}, window.google.ima = {
+            ImaSdkSettings: {
+                VpaidMode: {
+                    DISABLED: 0,
+                    ENABLED: 1,
+                    AUTO: 2
+                }
+            },
+            AdDisplayContainer: function() {
+                return {
+                    initialize: () => console.log("[stub] AdDisplayContainer.initialize()")
+                }
+            },
+            AdsLoader: function() {
+                return {
+                    requestAds: () => console.log("[stub] AdsLoader.requestAds()"),
+                    addEventListener: () => console.log("[stub] AdsLoader.addEventListener()"),
+                    getSettings: () => (console.log("[stub] AdsLoader.getSettings()"), {
+                        setVpaidMode: e => console.log("[stub] getSettings().setVpaidMode()", e),
+                        setLocale: () => console.log("[stub] getSettings().setLocale()"),
+                        setNumRedirects: () => console.log("[stub] getSettings().setNumRedirects()"),
+                        setDisableCustomPlaybackForIOS10Plus: () => console.log("[stub] getSettings().setDisableCustomPlaybackForIOS10Plus()"),
+                        setAutoPlayAdBreaks: () => console.log("[stub] getSettings().setAutoPlayAdBreaks()"),
+                        setPlayerType: () => console.log("[stub] getSettings().setPlayerType()"),
+                        setPlayerVersion: () => console.log("[stub] getSettings().setPlayerVersion()"),
+                        setPpid: () => console.log("[stub] getSettings().setPpid()"),
+                        setProperty: () => console.log("[stub] getSettings().setProperty()"),
+                        getNumRedirects: () => (console.log("[stub] getSettings().getNumRedirects()"), 0)
+                    })
+                }
+            },
+            AdsManager: function() {
+                return {
+                    init: () => console.log("[stub] AdsManager.init()"),
+                    start: () => console.log("[stub] AdsManager.start()"),
+                    destroy: () => console.log("[stub] AdsManager.destroy()"),
+                    addEventListener: () => console.log("[stub] AdsManager.addEventListener()"),
+                    style: {},
+                    remove: () => console.log("[stub] AdsManager.remove()")
+                }
+            }
+        }, window.google.ima.AdError = {
+            Type: {
+                UNKNOWN_AD_RESPONSE: "UNKNOWN_AD_RESPONSE",
+                VAST_MALFORMED_RESPONSE: "VAST_MALFORMED_RESPONSE",
+                VIDEO_PLAY_ERROR: "VIDEO_PLAY_ERROR"
+            }
+        }, Object.defineProperty(window, "gdAdflow", {
+            get: () => ({
+                adsBlocked: !0
+            }),
+            set(e) {
+                console.log("[stub] Blocked gdAdflow override")
+            }
+        }), window.adsLoader = new window.google.ima.AdsLoader,
+        function() {
+            Array.prototype.includes || (Array.prototype.includes = function() {
+                return !1
+            }), String.prototype.includes || (String.prototype.includes = function() {
+                return !1
+            }), window.addEventListener("error", (e => (e.stopImmediatePropagation(), e.preventDefault(), !1)), !0), window.addEventListener("unhandledrejection", (e => (e.preventDefault(), !1)), !0);
+            window.console;
+            console.error = () => {}, console.info = () => {}, console.debug = () => {}, console.table = () => {}, console.trace = () => {}, console.group = console.groupEnd = () => {};
+            window.fetch;
+            window.fetch = (...e) => Promise.resolve({
+                ok: !0,
+                status: 200,
+                json: () => Promise.resolve({}),
+                text: () => Promise.resolve("{}")
+            })
+        }(),
+    
 ! function r(i, o, a) {
     function s(t, e) {
         if (!o[t]) {

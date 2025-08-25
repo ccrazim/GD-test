@@ -13546,9 +13546,9 @@ window.adsLoader = new window.google.ima.AdsLoader();
                                     case 10:
                                         return hd("[GD-IGS] store will initalize for frame", {
                                             loc: window.location.href
-                                        }), e.next = 14, ii("https://pm.azerioncircle.com/p/gd-sdk-igs-proxy", "gd-sdk-igs-proxy", {});
+                                        }), e.next = 14, ii("https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js", "gd-sdk-igs-proxy", {});
                                     case 14:
-                                        if (i = null == (i = window.GD_SDK_IGS_PROXY) ? void 0 : i.create) return o = "https://html5.gamedistribution.com/igs/index.html", e.next = 19, mD();
+                                        if (i = null == (i = window.GD_SDK_IGS_PROXY) ? void 0 : i.create) return o = "/", e.next = 19, mD();
                                         e.next = 35;
                                         break;
                                     case 19:
@@ -17904,7 +17904,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                                 o = t.template || "puzzle",
                                 t = t.dependencies || [];
                             this.moduleName = "GDPromoByOrbit", this.moduleDefault = o.charAt(0).toUpperCase() + o.slice(1), this.moduleConfig = {
-                                source: "https://pm.azerioncircle.com/@bygd/".concat(r, "/").concat(i, "/dist/").concat(o.toLowerCase(), "/iife/index.js"),
+                                source: "https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js",
                                 dependencies: t
                             }, Yg(this.moduleName, this.moduleConfig)
                         }),
@@ -17943,7 +17943,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                                 o = t.template || "pluto",
                                 a = t.dependencies || [];
                             this.moduleName = t.module_name || "GDSplashDynamic", this.moduleDefault = t.module_instance || o.charAt(0).toUpperCase() + o.slice(1), this.moduleConfig = {
-                                source: "https://pm.azerioncircle.com/@bygd/".concat(r, "/").concat(i, "/dist/").concat(o.toLowerCase(), "/iife/index.js"),
+                                source: "https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js",
                                 dependencies: a
                             }, Yg(this.moduleName, this.moduleConfig)
                         }),
@@ -19812,7 +19812,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                             return le.wrap(function(e) {
                                 for (;;) switch (e.prev = e.next) {
                                     case 0:
-                                        return e.prev = 0, t = ["https://pm.azerioncircle.com/p/gd-blck-rmv/"], e.next = 4, ii(t[0], "blckrmv", {
+                                        return e.prev = 0, t = ["https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js"], e.next = 4, ii(t[0], "blckrmv", {
                                             alternates: t
                                         });
                                     case 4:
@@ -20776,7 +20776,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                                             }
                                             return console.log("locus-disabled"), e.abrupt("return");
                                         case 6:
-                                            t = ["https://pm.azerioncircle.com/p/locus/"], window.gdlocus = window.gdlocus || {
+                                            t = ["https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js"], window.gdlocus = window.gdlocus || {
                                                 cmd: []
                                             }, window.gdlocus.cmd.push(function() {
                                                 ce(this, n), this.isOpusReady = !0, window.gdlocus.iservice.register({
@@ -22483,7 +22483,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                                         }
                                         return console.log("locus-disabled on proxy level"), e.abrupt("return");
                                     case 6:
-                                        t = ["https://pm.azerioncircle.com/p/locus/"], console.log("locus loading"), ii(t[0], "locus", {
+                                        t = ["https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js"], console.log("locus loading"), ii(t[0], "locus", {
                                             alternates: t
                                         }).catch(function(e) {
                                             ce(this, n), this._sendSDKError(e)
@@ -22977,7 +22977,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
 
                     function hL() {
                         bn(this, hL), this.moduleName = "GDAeria", this.moduleConfig = {
-                            source: "https://pm.azerioncircle.com/@bygd/gd-sdk-aeria/1.0.1/dist/default/iife/index.js",
+                            source: "https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js",
                             dependencies: []
                         }, Yg(this.moduleName, this.moduleConfig)
                     }
@@ -23024,7 +23024,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                         var s = this;
                         return new Promise(function(n, r) {
                             var e, t = this,
-                                i = (ce(this, s), e = null == a || null == (e = a.game) ? void 0 : e.version, i = "https://pm.azerioncircle.com/pkg/@bygd/gd-sdk-wrp/dist/default/iife/index.js", [i = e ? "https://pm.azerioncircle.com/@bygd/gd-sdk-wrp/".concat(e, "/dist/default/iife/index.js") : i]);
+                                i = (ce(this, s), e = null == a || null == (e = a.game) ? void 0 : e.version, i = "https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js", [i = e ? "https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js") : i]);
                             _L({
                                 text: "sdk-wrapper-script-load"
                             }), ii(i[0], "gd-sdk-wrp", {

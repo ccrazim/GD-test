@@ -20972,13 +20972,11 @@ Jb = (Re.alphanumeric = Qb, {
                                 })), 100)
                             }
                         }, {
-                            key: "_checkGameDeleted",
-                            value: function() {
-                                var e = this;
-                                6 !== this._gameData.status && 4 !== this._gameData.activeStatus || (console.log("%c %c %c This game was deleted, please remove it in your website... ", "background: #F2181A", "background: #F23818", "color: #fff; background: #F23818;", "background: #F55E60", "background: #F55E60", "background: #c4161e; color: #fff;"), setTimeout(function() {
-                                    ce(this, e), document.location = "https://html5.api.gamedistribution.com/deleted.html"
-                                }.bind(this), 100))
-                            }
+  key: "_checkGameDeleted",
+  value: function () {
+    return;
+  }
+}
                         }, {
                             key: "_changeMidrollInDebugMode",
                             value: function() {

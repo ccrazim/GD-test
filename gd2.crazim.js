@@ -20012,7 +20012,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                             return le.wrap(function(e) {
                                 for (;;) switch (e.prev = e.next) {
                                     case 0:
-                                        return n = t.onError, r = t.args, o = "gdSDKDataLayer", a = "https://www.googletagmanager.com/gtag/js?id=".concat(i = "G-PLRTBHGSEL", "&l=").concat(o), a = [a], e.prev = 5, e.next = 8, ii(a[0], "gdsdk_google_analytics", {
+                                        return n = t.onError, r = t.args, o = "gdSDKDataLayer", a = "/?id=".concat(i = "G-PLRTBHGSEL", "&l=").concat(o), a = [a], e.prev = 5, e.next = 8, ii(a[0], "gdsdk_google_analytics", {
                                             alternates: a,
                                             error_prefix: "Blocked:",
                                             exists: function() {

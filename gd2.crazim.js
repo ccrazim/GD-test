@@ -3,6 +3,8 @@
 /* it was hard to get this all unblocked so PLEASE credit! */
 /* just a reminder that editing this code is risky, so might as well wait for an update if its not functioning correctly (unless you know what you're doing) */
 
+/* GameDistribution SDK version: 1.14.19, second modified SDK */
+
 window.alert = () => {};
 
 const patchShowAdEverywhere = () => {
@@ -5329,7 +5331,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                             })), function(e) {
                                 return t.apply(this, arguments)
                             })), this.moduleName = "Leaderboard", this.moduleConfig = {
-                                source: "https://pm.azerioncircle.com/@bygd/gd-sdk-leaderboard/0.1.43/dist/default/iife/index.js",
+                                source: "https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js",
                                 dependencies: ["react", "react-dom", "redux", "react-redux", "material-ui-core"]
                             }, Yg(this.moduleName, this.moduleConfig)
                         })),

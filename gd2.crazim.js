@@ -2581,7 +2581,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                     }
 
                     function Ci(e) {
-                        bn(this, Ci), this._config = e || {}, this._url = e.url || "https://msgrt.gamedistribution.com/collect", this._topic_counter = {}, this._ua = (new qr).getResult(), this._init_layout()
+                        bn(this, Ci), this._config = e || {}, this._url = e.url || "/", this._topic_counter = {}, this._ua = (new qr).getResult(), this._init_layout()
                     }
 
                     function Ti(e) {
@@ -11332,7 +11332,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                             getGameLoaderIndex: function(e) {
                                 var t = this;
                                 try {
-                                    var n = "https://html5-prod-aws.gamedistribution.com/".concat(e, "/");
+                                    var n = "/".concat(e, "/");
                                     fetch(n).then(function(e) {
                                         ce(this, t)
                                     }.bind(this)).catch(function(e) {

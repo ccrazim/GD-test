@@ -16808,7 +16808,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                         }, {
                             key: "_getPrebidScripts",
                             value: function() {
-                                var e = ["https://hb.improvedigital.com/pbw/headerlift.min.js", "http://hb.improvedigital.com/pbw/headerlift.min.js"];
+                                var e = ["/", "/"];
                                 return this.options.hb_script ? [this.options.hb_script].concat(e) : e
                             }
                         }, {

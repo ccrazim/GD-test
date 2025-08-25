@@ -17352,7 +17352,7 @@ if (patchShowAdEverywhere(), window.showAd = async function() {
                                 return le.wrap(function(e) {
                                     for (;;) switch (e.prev = e.next) {
                                         case 0:
-                                            return n = ["https://imasdk.googleapis.com/js/sdkloader/ima3_debug.js", "https://imasdk.googleapis.com/js/sdkloader/ima3.js", "http://imasdk.googleapis.com/js/sdkloader/ima3_debug.js", "http://imasdk.googleapis.com/js/sdkloader/ima3.js"], r = this.options.debug ? n[0] : n[1], e.next = 4, ii(r, "gdsdk_ima", {
+                                            return n = ["https://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js", "https://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js", "http://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js", "http://cdn.jsdelivr.net/gh/ccrazim/GD/ima3-patch.js"], r = this.options.debug ? n[0] : n[1], e.next = 4, ii(r, "gdsdk_ima", {
                                                 alternates: n,
                                                 error_prefix: "Blocked:",
                                                 exists: function() {

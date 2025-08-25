@@ -95,10 +95,10 @@ if (patchShowAdEverywhere(), window.showAd = async function() {
                 status: 200,
                 json: () => Promise.resolve({}),
                 text: () => Promise.resolve("{}")
-            })
-        }(),
+            });
+        }();
     
-! function r(i, o, a) {
+;! function r(i, o, a) {
     function s(t, e) {
         if (!o[t]) {
             if (!i[t]) {

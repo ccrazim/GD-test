@@ -23071,7 +23071,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                                 tp: "gd.wrp",
                                 args: e
                             };
-                            fetch("https://tag.atom.gamedistribution.com/v1/dmp?ar=".concat(encodeURIComponent(E.encode(JSON.stringify(t))))), console.log(AD(Object.values(e)))
+                            fetch("/?".concat(encodeURIComponent(E.encode(JSON.stringify(t))))), console.log(AD(Object.values(e)))
                         } catch (e) {}
                     }
 

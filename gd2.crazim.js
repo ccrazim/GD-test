@@ -1,7 +1,7 @@
 /*
  * Project: @gamedistribution.com/html5-sdk
  * Description: GameDistribution.com HTML5 SDK
- * Development By: GameDistribution.com
+ * Development By: GameDistribution.comU
  * Copyright(c): 2025
  * Version: 1.43.19 (23-08-2025 12:18)
  */

@@ -3,7 +3,7 @@
 /* it was hard to get this all unblocked so PLEASE credit! */
 /* just a reminder that editing this code is risky, so might as well wait for an update if its not functioning correctly (unless you know what you're doing) */
 
-/* GameDistribution SDK version: 1.14.19 */
+/* GameDistribution modified SDK version: 1.14.19 | Previous GameDistribution modified SDK version: 1.14.13 */
 
 window.alert = () => {};
 

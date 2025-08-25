@@ -1,10 +1,8 @@
-/*
- * Project: @gamedistribution.com/html5-sdk
- * Description: GameDistribution.com HTML5 SDK
- * Development By: GameDistribution.comU
- * Copyright(c): 2025
- * Version: 1.43.19 (23-08-2025 12:18)
- */
+/* thanks for using the SDK, credit Crazim if you are gonna have this on YOUR site! */
+/* https://crazim.fun https://www.youtube.com/@crazim */
+/* it was hard to get this all unblocked so PLEASE credit! */
+/* just a reminder that editing this code is risky, so might as well wait for an update if its not functioning correctly (unless you know what you're doing) */
+
 window.alert = () => {};
 
 const patchShowAdEverywhere = () => {

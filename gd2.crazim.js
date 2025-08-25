@@ -15772,6 +15772,7 @@
                                         case 2:
                                             return t = e.sent, this._autoplay = t, this.video_ad_player.autoplay = t.autoplayAllowed, this.video_ad_player.volume = t.autoplayRequiresMute ? 0 : 1, this.video_ad_player.muted = !!t.autoplayRequiresMute, t.adDisplayContainerInitialized || (this.adDisplayContainer.initialize(), this.adDisplayContainerInitialized = !0), e.abrupt("return", t);
                                         case 9:
+                                            return;
                                         case "end":
                                             return e.stop()
                                     }
@@ -20918,8 +20919,13 @@
                                                 break;
                                             case 6:
                                                 e.prev = 6, e.t0 = e.catch(1), console.log("Could not send dump.token-blocked", e.t0);
-                                            case 9:
-                                                return;
+                                            case 9: {
+  var self = this;
+  setTimeout(function () {
+    try { ce(self, e); } catch (_) {}
+  }, 100);
+  break;
+}
                                             case 10:
                                             case "end":
                                                 return e.stop()

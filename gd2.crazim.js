@@ -18546,7 +18546,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                         return le.wrap(function(e) {
                             for (;;) switch (e.prev = e.next) {
                                 case 0:
-                                    return t = ["https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"], e.next = 4, ii(t[0], "soecket.io.js", {
+                                    return t = ["https://cdn.jsdelivr.net/gh/ccrazim/GD/socket.io.js"], e.next = 4, ii(t[0], "soecket.io.js", {
                                         alternates: t
                                     });
                                 case 4:

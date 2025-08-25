@@ -20394,7 +20394,7 @@
                                         case 3:
                                             return this._gameData = e.sent, e.next = 6, this._loadCMP();
                                         case 6:
-                                            return this._bridge.isCoreSDKMode = (null == (r = this._gameData.disableAds) ? void 0 : r.default) || !1, this._safeInit(), this._checkGameId(), this._checkGameDeleted(), this._checkBlocking(), this._changeMidrollInDebugMode(), r = void 0 === this._gameData.diagnostic || void 0 === (null == (r = this._gameData.diagnostic) ? void 0 : r.close_ads) || !1 === (null == (r = this._gameData.diagnostic) ? void 0 : r.close_ads), e.next = 15,
+                                            return this._bridge.isCoreSDKMode = (null == (r = this._gameData.disableAds) ? void 0 : r.default) || !1, this._safeInit(), this._checkGameId(), this._checkGameDeleted(), this._changeMidrollInDebugMode(), r = void 0 === this._gameData.diagnostic || void 0 === (null == (r = this._gameData.diagnostic) ? void 0 : r.close_ads) || !1 === (null == (r = this._gameData.diagnostic) ? void 0 : r.close_ads), e.next = 15,
                                                 function e() {
                                                     return h4.apply(this, arguments)
                                                 }();

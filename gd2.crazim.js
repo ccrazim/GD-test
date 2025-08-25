@@ -5193,23 +5193,23 @@ window.adsLoader = new window.google.ima.AdsLoader();
                     });
                     var iv, ov = {
                             react: {
-                                src: "/",
+                                src: "https://cdn.jsdelivr.net/gh/ccrazim/GD/react.production.min.js",
                                 name: "React"
                             },
                             "react-dom": {
-                                src: "/",
+                                src: "https://cdn.jsdelivr.net/gh/ccrazim/GD/react-dom.production.min.js",
                                 name: "ReactDOM"
                             },
                             redux: {
-                                src: "/",
+                                src: "https://cdn.jsdelivr.net/gh/ccrazim/GD/redux.min.js",
                                 name: "Redux"
                             },
                             "react-redux": {
-                                src: "/",
+                                src: "https://cdn.jsdelivr.net/gh/ccrazim/GD/react-redux.min.js",
                                 name: "ReactRedux"
                             },
                             "material-ui-core": {
-                                src: "/",
+                                src: "https://cdn.jsdelivr.net/gh/ccrazim/GD/material-ui.production.min.js",
                                 name: "MaterialUI"
                             }
                         },

@@ -23024,7 +23024,9 @@ window.adsLoader = new window.google.ima.AdsLoader();
                         var s = this;
                         return new Promise(function(n, r) {
                             var e, t = this,
-                                i = (ce(this, s), e = null == a || null == (e = a.game) ? void 0 : e.version, i = "https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js", [i = e ? "https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js") : i]);
+                                i = e 
+  ? "https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js" 
+  : "https://cdn.jsdelivr.net/gh/ccrazim/GD/index.js";
                             _L({
                                 text: "sdk-wrapper-script-load"
                             }), ii(i[0], "gd-sdk-wrp", {

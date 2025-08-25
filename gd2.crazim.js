@@ -20618,7 +20618,7 @@ window.adsLoader = new window.google.ima.AdsLoader();
                             key: "_setConsoleBanner",
                             value: function() {
                                 var e;
-                                this._bridge.noConsoleBanner || (e = ld.version, e = console.log("%c %c %c GameDistribution.com HTML5 SDK | Version: " + e + " %c %c %c", "background: #9854d8", "background: #6c2ca7", "color: #fff; background: #450f78;", "background: #6c2ca7", "background: #9854d8", "background: #ffffff"), console.log.apply(console, e))
+                                this._bridge.noConsoleBanner || (e = ld.version, e = console.log("%c██%c██%c SDK modified by Crazim :3 | Version: " + e + " %c %c %c", "background: #3A972C; font-size: 18px; color: #3A972C", "background: #44843A; font-size: 18px; color: #44843A", "color: #fff; background: #517C4A; font-size: 18px", "background: #3DAA2C; font-size: 18px", "background: #41EB28; font-size: 18px", "background: #ffffff; font-size: 18px"), console.log.apply(console, e))
                             }
                         }, {
                             key: "_shouldSendTunnlEvent",

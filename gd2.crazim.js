@@ -20395,7 +20395,7 @@
                                         case 3:
                                             return this._gameData = e.sent, e.next = 6, this._loadCMP();
                                         case 6:
-                                            return this._bridge.isCoreSDKMode = (null == (r = this._gameData.disableAds) ? void 0 : r.default) || !1, this._safeInit(), this._checkGameId(), this._checkGameDeleted(), this._checkBlocking(), this._changeMidrollInDebugMode(), r = void 0 === this._gameData.diagnostic || void 0 === (null == (r = this._gameData.diagnostic) ? void 0 : r.close_ads) || !1 === (null == (r = this._gameData.diagnostic) ? void 0 : r.close_ads), e.next = 15,
+                                            return this._bridge.isCoreSDKMode = (null == (r = this._gameData.disableAds) ? void 0 : r.default) || !1, this._safeInit(), this._checkGameId(), this._changeMidrollInDebugMode(), r = void 0 === this._gameData.diagnostic || void 0 === (null == (r = this._gameData.diagnostic) ? void 0 : r.close_ads) || !1 === (null == (r = this._gameData.diagnostic) ? void 0 : r.close_ads), e.next = 15,
                                                 function e() {
                                                     return h4.apply(this, arguments)
                                                 }();
@@ -23983,60 +23983,3 @@
         "@bygd/gd-sdk-pes/dist/default": 1
     }]
 }, {}, [6]);
-
-(function () {
-  const TARGET_KEYS = new Set([
-    "_checkBlocking",
-    "_checkGameDeleted",
-    "_redirectToBlocking",
-    "_redirectToLoaderFrame"
-  ]);
-
-  const seen = new WeakSet();
-
-  function neutralize(obj) {
-    for (const key of Object.getOwnPropertyNames(obj)) {
-      if (!TARGET_KEYS.has(key)) continue;
-      try {
-        const d = Object.getOwnPropertyDescriptor(obj, key);
-        if (d && typeof d.value === "function") {
-          Object.defineProperty(obj, key, {
-            configurable: true,
-            writable: true,
-            value: function () { return; }
-          });
-        }
-      } catch (_) {}
-    }
-  }
-
-  function crawl(node, depth = 0) {
-    if (!node) return;
-    const t = typeof node;
-    if ((t !== "object" && t !== "function") || seen.has(node) || depth > 4) return;
-
-    seen.add(node);
-
-    neutralize(node);
-
-    const proto = Object.getPrototypeOf(node);
-    if (proto && !seen.has(proto)) {
-      neutralize(proto);
-      crawl(proto, depth + 1);
-    }
-
-    let keys;
-    try { keys = Object.getOwnPropertyNames(node); } catch (_) { keys = []; }
-    for (const k of keys) {
-      let child;
-      try { child = node[k]; } catch (_) { continue; }
-      crawl(child, depth + 1);
-    }
-  }
-
-  function run() { crawl(window, 0); }
-
-  run();
-  const id = setInterval(run, 250);
-  setTimeout(() => clearInterval(id), 4000);
-})();
